@@ -52,24 +52,36 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "development": { // add this block
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gettingStarted:build"
+            "buildTarget": "gettingStarted:build"
           },
+          "defaultConfiguration": "development" ,
           "configurations": {
             "production": {
-              "browserTarget": "gettingStarted:build:production"
+              "buildTarget": "gettingStarted:build:production"
+            },
+            "development": { // add this block
+              "buildTarget": "gettingStarted:build:development"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gettingStarted:build"
+            "buildTarget": "gettingStarted:build"
           }
         },
         "test": {
@@ -165,24 +177,37 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "development": { // add this block
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "exampleApp:build"
+            "buildTarget": "exampleApp:build"
           },
+          "defaultConfiguration": "development" ,
           "configurations": {
             "production": {
-              "browserTarget": "exampleApp:build:production"
+              "buildTarget": "exampleApp:build:production"
+            },
+            "development": { // add this block
+              "buildTarget": "exampleApp:build:development"
             }
           }
+
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "exampleApp:build"
+            "buildTarget": "exampleApp:build"
           }
         },
         "test": {
@@ -228,6 +253,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "gettingStarted"
+    }
+  },
+   //"defaultProject": "gettingStarted",
+  "cli": {
+    "analytics": false
+  }
 }
